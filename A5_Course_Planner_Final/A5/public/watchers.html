@@ -1,0 +1,82 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/general.css"/>
+    <link rel="stylesheet" type="text/css" href="css/watchers.css"/>
+
+</head>
+<body>
+
+<div id="watcherApp">
+    <div id="menu">
+        <ul>
+            <li><a href="/index.html">Browse</a></li>
+            <li><a href="/watchers.html">Watchers</a></li>
+            <li><a href="/graph.html">Graph</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
+    </div>
+
+    <h2>Add Watcher</h2>
+    <p>
+        <select v-model="selectedDept" class="dropdown">
+            <option v-for="option in departments" :value="option">
+                {{ option.name }}
+            </option>
+        </select>
+
+        <select v-if="selectedDept" v-model="selectedCourse" class="dropdown">
+            <option v-for="option in courses" :value="option">
+                {{ option.catalogNumber }}
+            </option>
+        </select>
+
+        <button v-if="selectedCourse" type="button" v-on:click="makeWatcher()">
+            Create Watcher
+        </button>
+    </p>
+
+
+    <div id="right">
+        <div v-if="selectedWatcher == null">
+            <h2>Events</h2>
+            <p>Select a watcher to display its observed events.</p>
+        </div>
+
+        <div v-if="selectedWatcher">
+            <h2>Events</h2>
+            <ul>
+                <li v-for="event in selectedWatcher.events">
+                    {{event}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Watchers</h2>
+    <table>
+        <tr class="header">
+            <td>ID</td>
+            <td>Department</td>
+            <td>Course</td>
+            <td># Events</td>
+        </tr>
+        <tr v-for="watcher in watchers"
+            v-on:click='selectWatcher(watcher)'
+            class="watchers"
+        >
+            <td>{{watcher.id}}</td>
+            <td>{{watcher.department.name}}</td>
+            <td>{{watcher.course.catalogNumber}}</td>
+            <td>{{watcher.events.length}}</td>
+
+        </tr>
+    </table>
+
+</div>
+
+<!--Load controlling code development -->
+<script src="scripts/watchers.js"></script>
+</body>

@@ -1,0 +1,95 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/general.css"/>
+    <link rel="stylesheet" type="text/css" href="css/browse.css"/>
+
+</head>
+<body>
+
+    <div id="browseApp">
+        <div id="menu">
+            <ul>
+                <li><a href="/index.html">Browse</a></li>
+                <li><a href="/watchers.html">Watchers</a></li>
+                <li><a href="/graph.html">Graph</a></li>
+                <li><a href="/about.html">About</a></li>
+            </ul>
+        </div>
+
+
+        <div id="left" class="sidebar">
+            <h2>Department</h2>
+            <p>
+                <select v-model="selectedDept">
+                    <option v-for="option in departments" :value="option">
+                        {{ option.name }}
+                    </option>
+                </select>
+            </p>
+
+            <h2><span v-if="selectedDept">{{selectedDept.name}} </span>Courses</h2>
+            <ul id="courses">
+                <li v-for="course in courses">
+                    <a href="#" v-on:click='selectCourse(course)'>
+                        {{course.catalogNumber}}
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div id="right" class="sidebar">
+            <div v-if="selectedOffering">
+                <h2>Offering Details</h2>
+                <table>
+                    <tr class="header">
+                        <td>Section Type</td>
+                        <td>(# / Cap)</td>
+                    </tr>
+                    <tr v-for="section in offeringDetails">
+                        <td>{{section.type}}</td>
+                        <td>({{section.enrollmentTotal}}
+                            / {{section.enrollmentCap}})</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+
+        <div id="contents">
+            <div v-if="!selectedCourse">
+                <h2>Course Offerings</h2>
+                <p>Please select a department and then a course from on the left.</p>
+            </div>
+
+            <div v-if="selectedCourse">
+                <h2>Course Offerings for {{selectedDept.name}} {{selectedCourse.catalogNumber}}</h2>
+
+                <table>
+                    <tr class="header">
+                        <td>Semester</td>
+                        <td>Instructor(s)</td>
+                        <td>Campus</td>
+                    </tr>
+                    <tr v-for="offering in courseOfferings"
+                        v-on:click='selectOffering(offering)'
+                        class="offerings"
+                    >
+                        <td>({{offering.semesterCode}}) {{offering.term}} {{offering.year}}</td>
+                        <td>with {{offering.instructors}}</td>
+                        <td>in {{offering.location}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--Load controlling code development -->
+    <script src="scripts/browse.js"></script>
+</body>

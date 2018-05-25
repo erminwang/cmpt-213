@@ -1,0 +1,20 @@
+
+#right {
+    float: right;
+    width: 70%;
+}
+
+
+tr.header {
+    font-weight: bold;
+}
+tr.watchers {
+    cursor: pointer;
+}
+tr.watchers:hover {
+    background-color: yellow;
+}
+
+.dropdown {
+    width: 100px;
+}

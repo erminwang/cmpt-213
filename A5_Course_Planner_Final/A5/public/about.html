@@ -1,0 +1,36 @@
+<link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/general.css"/>
+</head>
+<body>
+    <div id="aboutApp">
+        <div id="menu">
+            <ul>
+                <li><a href="/index.html">Browse</a></li>
+                <li><a href="/watchers.html">Watchers</a></li>
+                <li><a href="/graph.html">Graph</a></li>
+                <li><a href="/about.html">About</a></li>
+            </ul>
+        </div>
+
+
+        <div id="main">
+            <h1>About</h1>
+            <p>Welcome to <strong>{{appName}}</strong>, written by <strong>{{authorName}}</strong>.</p>
+            <h2>Dump Model</h2>
+            <p>Dump the model to the server's terminal (nothing appears here; just on the servers
+                terminal.<br/>
+                <button type="button" v-on:click="dumpModel()">
+                    Dump Model
+                </button>
+
+            </p>
+        </div>
+
+    </div>
+
+    <!--Load controlling code development -->
+    <script src="scripts/about.js"></script>
+</body>

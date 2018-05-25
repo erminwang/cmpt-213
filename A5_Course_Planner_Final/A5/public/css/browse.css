@@ -1,0 +1,56 @@
+
+/*
+    General Structure
+*/
+.sidebar {
+    width: 200px;
+    border: 0px solid black;
+}
+
+#left {
+    float: left;
+}
+
+#right {
+    float: right;
+}
+
+#contents {
+    margin-left: 210px;
+    margin-right: 210px;
+}
+
+
+
+
+/*
+    Course List
+*/
+ul#courses {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#courses li {
+    float: left;
+    width: 80;
+}
+#courses li a {
+    display: block;
+    padding: 3px;
+    text-decoration: none;
+}
+#courses li a:hover {
+    background-color: yellow;
+}
+
+tr.header {
+    font-weight: bold;
+}
+tr.offerings {
+    cursor: pointer;
+}
+tr.offerings:hover {
+    background-color: yellow;
+}

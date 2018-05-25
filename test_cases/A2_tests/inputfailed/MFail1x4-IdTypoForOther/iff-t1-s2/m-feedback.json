@@ -1,0 +1,37 @@
+{
+  "group": [
+    {
+       "name": "Team1 Student2",
+       "sfu_email": "iff-t1-s2",
+       "contribution": {
+          "score": 25.0,
+          "comment": "From 'Team1 Student2' about 'Team1 Student2'\nAnd they said, \"You'll never get it done!\""
+       }
+    }
+    ,{
+       "name": "Team1 Student3",
+       "sfu_email": "dos-t1-s3",
+       "contribution": {
+          "score": 19.8,
+          "comment": "From 'Team1 Student2' about 'Team1 Student3'\nAnd they said, \"You'll never get it done!\""
+       }
+    }
+    ,{
+       "name": "Team1 Student1",
+       "sfu_email": "bmo-t1-s1",
+       "contribution": {
+          "score": 21.5,
+          "comment": "From 'Team1 Student2' about 'Team1 Student1'\nAnd they said, \"You'll never get it done!\""
+       }
+    }
+    ,{
+       "name": "Team1 Student4",
+       "sfu_email": "jco-t1-s4",
+       "contribution": {
+          "score": 13.7,
+          "comment": "From 'Team1 Student2' about 'Team1 Student4'\nAnd they said, \"You'll never get it done!\""
+       }
+    }
+  ],
+  "confidential_comments": "That's all! It was \"fun\"! (said Team1 Student2)\nDon't forget: Bring your towel \\ the cake is a lie."
+}
